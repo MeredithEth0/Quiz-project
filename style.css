@@ -1,0 +1,10 @@
+* {
+    font-family: helvetica, sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+header {
+    font-size: 24px;
+    font-weight: bold;
+}
