@@ -2,7 +2,7 @@
     font-family: helvetica, sans-serif;
     font-size: 16px;
     text-align: center;
-    background-color: rgb(241, 247, 252);
+    background-color: #eef7ff;
     margin: 0;
     padding-bottom: 4px;
 }
@@ -25,6 +25,17 @@ footer {
     color: white;
 }
 
+#resetButton {
+    background-color: #1777b8;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 15%;
+    min-width: 100px;
+}
+
 #nextButton {
     background-color: #1777b8;
     color: white;
@@ -33,6 +44,7 @@ footer {
     border-radius: 5px;
     font-size: 16px;
     width: 15%;
+    min-width: 125px;
 }
 
 .answer-btn {
@@ -44,6 +56,7 @@ footer {
     font-size: 16px;
     width: 40%;
     margin-bottom: 5px;
+    min-width: 150px;
 }
 
 .answer-btn:hover {
