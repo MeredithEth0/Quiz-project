@@ -1,6 +1,7 @@
 // Prepare the variables for storing the array of questions, score and question number
 let questions = [];
 let currentQuestion = 0;
+let currentQuestionNum = 1;
 let score = 0;
 
 // func to decode HTML 
@@ -31,8 +32,8 @@ function displayQuestions() {
     const q = questions[currentQuestion];
     const answers = [q.correct_answer, ...q.incorrect_answers];
     shuffle(answers); // calls shuffle func
-
-    let html = `<h2>${decodeHTML(q.question)}</h2>`;
+    
+    let html = `<h2 id="question">Question number: ${decodeHTML(currentQuestionNum)}</h2><h2 id="question">${decodeHTML(q.question)}</h2>`;
     answers.forEach(answer => {
         html += `<button class="answer-btn" data-answer="${decodeHTML(answer)}">${decodeHTML(answer)}</button><br>`;
     });
@@ -64,6 +65,7 @@ function selectAnswer(selected, correct) {
 
 document.getElementById("nextButton").addEventListener("click", function() {
     currentQuestion++;
+    currentQuestionNum++;
     if (currentQuestion < questions.length) {
         displayQuestions();
     } else {
@@ -75,4 +77,21 @@ document.getElementById("nextButton").addEventListener("click", function() {
 //Button on the bottom of the page to reset the quiz (which refreshes the webpage)
 document.getElementById("resetButton").addEventListener("click",function(){
     location.reload();
+});
+
+//This part of the script controls the darkmode button
+const darkModeButton = document.getElementById('darkModeButton');
+const body = document.body;
+
+// Optional: Remember preference
+if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('darkMode');
+    darkModeButton.textContent = 'Light Mode';
+}
+
+darkModeButton.addEventListener('click', function() {
+    body.classList.toggle('darkMode');
+    const enabled = body.classList.contains('darkMode');
+    darkModeButton.textContent = enabled ? 'Light Mode' : 'Dark Mode';
+    localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
 });

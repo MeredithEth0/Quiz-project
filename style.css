@@ -2,17 +2,51 @@
     font-family: helvetica, sans-serif;
     font-size: 16px;
     text-align: center;
-    background-color: #eef7ff;
     margin: 0;
     padding-bottom: 4px;
 }
 
-header {
-    font-size: 24px;
-    font-weight: bold;
+html, body {
+    background-color: #eef7ff;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.topBanner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
     background-color: #1777b8;
-    padding: 10px;
     color: white;
+    position: relative;
+}
+
+#resetButton {
+    background-color: #1777b8;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 15%;
+    min-width: 100px;
+}
+
+#darkModeButton {
+    background-color: #1777b8;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 15%;
+    min-width: 100px;
+}
+
+#bannerTitle {
+    font-size: 2rem;
+    background-color: #1777b8;
 }
 
 footer {
@@ -23,17 +57,6 @@ footer {
     background-color: #1777b8;
     padding: 10px;
     color: white;
-}
-
-#resetButton {
-    background-color: #1777b8;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 15%;
-    min-width: 100px;
 }
 
 #nextButton {
@@ -63,8 +86,45 @@ footer {
     background-color: #175985;
 }
 
+#resetButton:hover {
+    background-color: #175985;
+}
+
+#darkModeButton:hover {
+    background-color: #175985;
+}
+
+#nextButton:hover {
+    background-color: #175985;
+}
+
 #quizTheme {
     font-weight: bold;
     font-size: 20px;
     color: #0a6aaa;
+}
+
+#question {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+body.darkMode {
+    background-color: #181c24;
+    color: #f5f5f5;
+}
+
+body.darkMode .topBanner,
+body.darkMode footer,
+body.darkMode #bannerTitle,
+body.darkMode #resetButton,
+body.darkMode #darkModeButton,
+body.darkMode #nextButton,
+body.darkMode .answer-btn {
+    background-color: #222a36;
+    color: #fff;
+}
+
+body.darkMode #quizTheme {
+    color: #5ecfff;
 }

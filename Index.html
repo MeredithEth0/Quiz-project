@@ -8,17 +8,21 @@
     </head>
 
     <body>
-        <header>Quiz website</header>
+        <div class="topBanner">
+            <button id="darkModeButton">Dark Mode</button>
+            <h1 id="bannerTitle">Quiz website</h1>
+            <button id="resetButton">Reset Quiz</button>
+        </div>
         <main>
             <br>
-            <p>Welcome to the quiz website I am making for my portfolio.<br>
-            Below there will be 10 questions randomly generated from an API connection around the theme of:</p>
+            <p id="question">Welcome to the quiz website I am making for my portfolio.<br>
+            Below there will be 10 questions randomly generated around the theme of:</p><br>
             <p id="quizTheme">Computing</p>
             <br>
+            <h2 id="Qnum"></h2>
             <div id="quizContainer">Loading...<br><br>If this does not load please either refresh the page or press the "Reset Quiz" button.</div>
             <button id="nextButton" style="display:none;">Next Question</button>
             <br><br>
-            <button id="resetButton">Reset Quiz</button>
         </main>
         <script src="quiz.js"></script>
         <br><br><br>
