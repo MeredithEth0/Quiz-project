@@ -10,14 +10,19 @@
     <body>
         <header>Quiz website</header>
         <main>
+            <br>
             <p>Welcome to the quiz website I am making for my portfolio.<br>
             Below there will be 10 questions randomly generated from an API connection around the theme of:</p>
-            <p>Computing</p>
+            <p id="quizTheme">Computing</p>
             <br>
-            <div id="quizContainer">Loading...</div>
+            <div id="quizContainer">Loading...<br><br>If this does not load please either refresh the page or press the "Reset Quiz" button.</div>
             <button id="nextButton" style="display:none;">Next Question</button>
+            <br><br>
+            <button id="resetButton">Reset Quiz</button>
         </main>
         <script src="quiz.js"></script>
+        <br><br><br>
+        <footer>2025 Quiz website by: Ethan Meredith</footer>
     </body>
 
 </html>

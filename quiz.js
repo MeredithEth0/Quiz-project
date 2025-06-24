@@ -71,3 +71,8 @@ document.getElementById("nextButton").addEventListener("click", function() {
         this.style.display = "none";
     }
 });
+
+//Button on the bottom of the page to reset the quiz (which refreshes the webpage)
+document.getElementById("resetButton").addEventListener("click",function(){
+    location.reload();
+});
