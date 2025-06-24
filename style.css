@@ -2,9 +2,56 @@
     font-family: helvetica, sans-serif;
     font-size: 16px;
     text-align: center;
+    background-color: rgb(241, 247, 252);
+    margin: 0;
+    padding-bottom: 4px;
 }
 
 header {
     font-size: 24px;
     font-weight: bold;
+    background-color: #1777b8;
+    padding: 10px;
+    color: white;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    background-color: #1777b8;
+    padding: 10px;
+    color: white;
+}
+
+#nextButton {
+    background-color: #1777b8;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 15%;
+}
+
+.answer-btn {
+    background-color: #1777b8;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40%;
+    margin-bottom: 5px;
+}
+
+.answer-btn:hover {
+    background-color: #175985;
+}
+
+#quizTheme {
+    font-weight: bold;
+    font-size: 20px;
+    color: #0a6aaa;
 }
