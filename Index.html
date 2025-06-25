@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
     <head>
-        <title>Quiz website</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
+        <title>Quiz Website</title>
+        <h1>Quiz Website</h1>
+        <p>This is a demo quiz website for my portfolio.</p>
     </head>
-
-    <body>
-        <div class="topBanner">
-            <button id="darkModeButton">Dark Mode</button>
-            <h1 id="bannerTitle">Quiz website</h1>
-            <button id="resetButton">Reset Quiz</button>
-        </div>
-        <main>
-            <br>
-            <p id="question">Welcome to the quiz website I am making for my portfolio.<br>
-            Below there will be 10 questions randomly generated around the theme of:</p><br>
-            <p id="quizTheme">Computing</p>
-            <br>
-            <div id="quizContainer">Loading...<br><br>If the questions do not load please either refresh the page or press the "Reset Quiz" button.</div>
-            <button id="nextButton" style="display:none;">Next Question</button>
-            <br><br>
-        </main>
-        <script src="quiz.js"></script>
-        <br><br><br>
-        <footer>2025 Quiz website by: Ethan Meredith</footer>
-    </body>
-
+    <br><br><br>
+    <div id="Quiz">
+        <h2>Quiz</h2>
+        <p>Please answer the questions below to the best of your ability. These questions are randomly generated to the theme of: Random.</p>
+        <br><br>
+    </div>
+    <div id="quiz-container">
+        <h2 id="question"></h2>
+        <p id="QuestionNumber"></p>
+        <input type="text" id="answer" placeholder="input answer here">
+        <button id="submit">Submit</button>
+        <div id="feedback"></div>
+        <br><br>
+    </div>
+    <br>
+    <button id="reset">Reset Quiz</button>
+    <script src="main.js"></script>
 </html>
