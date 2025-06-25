@@ -69,7 +69,10 @@ document.getElementById("nextButton").addEventListener("click", function() {
     if (currentQuestion < questions.length) {
         displayQuestions();
     } else {
-        document.getElementById("quizContainer").innerHTML = `<h2>Quiz Complete!</h2><p>Your score was ${score} / ${questions.length}</p>`;
+        document.getElementById("quizContainer").innerHTML = `
+        <h2>Quiz Complete!</h2>
+        <p>Your score was ${score} / ${questions.length}</p>
+        <p>Please press "Reset Quiz" to play again!</p>`;
         this.style.display = "none";
     }
 });

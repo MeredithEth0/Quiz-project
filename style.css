@@ -22,17 +22,7 @@ html, body {
     position: relative;
 }
 
-#resetButton {
-    background-color: #1777b8;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 14px;
-    width: 15%;
-    min-width: 100px;
-}
-
+#resetButton,
 #darkModeButton {
     background-color: #1777b8;
     border: none;
@@ -57,6 +47,7 @@ footer {
     background-color: #1777b8;
     padding: 10px;
     color: white;
+    text-align: left;;
 }
 
 #nextButton {
@@ -82,18 +73,9 @@ footer {
     min-width: 150px;
 }
 
-.answer-btn:hover {
-    background-color: #175985;
-}
-
-#resetButton:hover {
-    background-color: #175985;
-}
-
-#darkModeButton:hover {
-    background-color: #175985;
-}
-
+.answer-btn:hover,
+#resetButton:hover,
+#darkModeButton:hover,
 #nextButton:hover {
     background-color: #175985;
 }
@@ -123,6 +105,13 @@ body.darkMode #nextButton,
 body.darkMode .answer-btn {
     background-color: #222a36;
     color: #fff;
+}
+
+body.darkMode #darkModeButton:hover,
+body.darkMode #resetButton:hover,
+body.darkMode #nextButton:hover,
+body.darkMode .answer-btn:hover {
+    background-color: #1c222c;
 }
 
 body.darkMode #quizTheme {
