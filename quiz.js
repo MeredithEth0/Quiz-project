@@ -11,7 +11,7 @@ function decodeHTML(html) {
     return txt.value;
 }
 
-// func to shuffle the answers to avoid repeat poitioning
+// func to shuffle the answers to avoid repeat positioning
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -49,15 +49,30 @@ function displayQuestions() {
 }
 
 function selectAnswer(selected, correct) {
+    // Disable all answer buttons and reset colors
+    document.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.disabled = true;
+        btn.style.backgroundColor = "";
+    });
+
+    // Highlight clicked button (green if correct, red if wrong)
+    document.querySelectorAll(".answer-btn").forEach(btn => {
+        if (btn.dataset.answer === selected) {
+            btn.style.backgroundColor = (selected === correct) ? "green" : "red";
+        }
+        // Highlight correct answer if wrong
+        if (selected !== correct && btn.dataset.answer === correct) {
+            btn.style.backgroundColor = "green";
+        }
+    });
+
     let feedback = "";
     if (selected === correct) {
-        feedback = "<p style='color:green;'>Correct answer!</p>";
+        feedback = "<br><p style='color:green;'><strong>Correct answer!</strong></p><br>";
         score++;
     } else {
-        feedback = `<p style='color:red;'>Wrong! The correct answer was: <strong>${correct}</strong></p>`;
+        feedback = `<br><p style='color:red;'>Wrong! The correct answer was: <strong>${correct}</strong></p><br>`;
     }
-
-    document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = true);
 
     document.getElementById("quizContainer").innerHTML += feedback;
     document.getElementById("nextButton").style.display = "inline-block";

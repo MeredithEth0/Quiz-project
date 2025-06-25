@@ -114,6 +114,14 @@ body.darkMode .answer-btn:hover {
     background-color: #1c222c;
 }
 
+body.rightAnswer .answer-btn{
+    background-color: green;
+}
+
+body.wrongAnswer .answer-btn {
+    background-color: red;
+}
+
 body.darkMode #quizTheme {
     color: #5ecfff;
 }
