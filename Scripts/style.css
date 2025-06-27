@@ -9,7 +9,7 @@
 html, body {
     background-color: #eef7ff;
     min-height: 100vh;
-    overflow: hidden;
+
 }
 
 .topBanner {
@@ -23,7 +23,9 @@ html, body {
 }
 
 #resetButton,
-#darkModeButton {
+#darkModeButton,
+#howToButton,
+#backButton {
     background-color: #1777b8;
     border: none;
     color: white;
@@ -76,7 +78,10 @@ footer {
 .answer-btn:hover,
 #resetButton:hover,
 #darkModeButton:hover,
-#nextButton:hover {
+#nextButton:hover,
+#howToButton:hover,
+.QuizOptionBtn:hover,
+#backButton:hover {
     background-color: #175985;
 }
 
@@ -102,15 +107,25 @@ body.darkMode #bannerTitle,
 body.darkMode #resetButton,
 body.darkMode #darkModeButton,
 body.darkMode #nextButton,
-body.darkMode .answer-btn {
+body.darkMode #howToButton,
+body.darkMode .answer-btn,
+body.darkMode .QuizOptionBtn,
+body.darkMode #backButton {
     background-color: #222a36;
     color: #fff;
+}
+
+body.darkMode #opentdblink{
+    color: rgb(64, 187, 64);
 }
 
 body.darkMode #darkModeButton:hover,
 body.darkMode #resetButton:hover,
 body.darkMode #nextButton:hover,
-body.darkMode .answer-btn:hover {
+body.darkMode #howToButton:hover,
+body.darkMode .answer-btn:hover,
+body.darkMode .QuizOptionBtn:hover,
+body.darkMode #backButton:hover {
     background-color: #1c222c;
 }
 
@@ -124,4 +139,23 @@ body.wrongAnswer .answer-btn {
 
 body.darkMode #quizTheme {
     color: #5ecfff;
+}
+
+.quizOptions {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 2rem;
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+.QuizOptionBtn {
+    background-color: #1777b8;
+    border: none;
+    color: white;
+    padding: 24px 24px;
+    border-radius: 5px;
+    font-size: 20px;
+    min-width: 100px;
 }

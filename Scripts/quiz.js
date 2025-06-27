@@ -4,6 +4,10 @@ let currentQuestion = 0;
 let currentQuestionNum = 1;
 let score = 0;
 
+const apiUrl = localStorage.getItem("selectedQuizUrl");
+const catName = localStorage.getItem("selectedQuizCat");
+quizTheme.textContent = catName;
+
 // func to decode HTML 
 function decodeHTML(html) {
     const txt = document.createElement("textarea");
@@ -21,7 +25,7 @@ function shuffle(array) {
 }
 
 // Fetch questions API and start quiz
-fetch("https://opentdb.com/api.php?amount=10&category=18&type=multiple")
+fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         questions = data.results;
@@ -97,19 +101,7 @@ document.getElementById("resetButton").addEventListener("click",function(){
     location.reload();
 });
 
-//This part of the script controls the darkmode button
-const darkModeButton = document.getElementById('darkModeButton');
-const body = document.body;
-
-// Optional: Remember preference
-if (localStorage.getItem('darkMode') === 'enabled') {
-    body.classList.add('darkMode');
-    darkModeButton.textContent = 'Light Mode';
-}
-
-darkModeButton.addEventListener('click', function() {
-    body.classList.toggle('darkMode');
-    const enabled = body.classList.contains('darkMode');
-    darkModeButton.textContent = enabled ? 'Light Mode' : 'Dark Mode';
-    localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
-});
+//this adds function to the back button
+document.getElementById("backButton").addEventListener("click",function(){
+    window.location.href = "index.html";
+})

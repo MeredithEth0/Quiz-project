@@ -2,29 +2,53 @@
 <html lang="en">
 
     <head>
-        <title>Quiz website</title>
+        <title>Quiz Menu</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/Scripts/style.css">
     </head>
 
-    <body>
+    <body style="overflow-x: hidden;">
         <div class="topBanner">
             <button id="darkModeButton">Dark Mode</button>
-            <h1 id="bannerTitle">Quiz website</h1>
-            <button id="resetButton">Reset Quiz</button>
+            <h1 id="bannerTitle">Quiz Site Main Menu</h1>
+            <button id="howToButton">How to play</button>
         </div>
         <main>
             <br>
-            <p id="question">Welcome to the quiz website I am making for my portfolio.<br>
-            Below there will be 10 questions randomly generated around the theme of:</p><br>
-            <p id="quizTheme">Computing</p>
-            <br>
-            <div id="quizContainer">Loading...<br><br>If the questions do not load please either refresh the page or press the "Reset Quiz" button.</div>
-            <button id="nextButton" style="display:none;">Next Question</button>
-            <br><br>
+            <h2>This is my quiz website I have designed as a portfolio piece to demonstrate my web-development ability.</h2><br>
+            <h2>Below you will find 25 catories of questions which you can choose from to<br>do a 10 question quiz. 
+                The quiz questions are genreated from an API which can<br>be found at <a id="opentdblink" href="https://opentdb.com">opentdb</a>. <br><br>I hope you enjoy :)</h2>
+            
+            <div class="quizOptions"> <!--This assigns the unique URL to each button to generate 10 multiple choice questions of the player choosing-->
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&type=multiple">All Categories</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=9&type=multiple">General Knowledge</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=10&type=multiple">Books</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=11&type=multiple">Films</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=12&type=multiple">Music</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=13&type=multiple">Theatre</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=14&type=multiple">Television</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=15&type=multiple">Video Games</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=16&type=multiple">Board Games</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=17&type=multiple">Science & Nature</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=18&type=multiple">Computing</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=19&type=multiple">Mathematics</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=20&type=multiple">Mythology</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=21&type=multiple">Sports</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=22&type=multiple">Geography</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=23&type=multiple">History</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=24&type=multiple">Politics</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=25&type=multiple">Art</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=26&type=multiple">Celebrities</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=27&type=multiple">Animals</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=28&type=multiple">Vehicles</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=29&type=multiple">Comics</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=30&type=multiple">Gadgets</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=31&type=multiple">Anime & Manga</button>
+                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=32&type=multiple">Cartoons & Animation</button>
+            </div>
         </main>
-        <script src="quiz.js"></script>
-        <br><br><br>
+        <script src="/Scripts/pageColourSelect.js"></script>
+        <script src="Scripts/quizSelector.js"></script>
         <footer>2025 Quiz website by: Ethan Meredith</footer>
     </body>
 
