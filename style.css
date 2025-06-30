@@ -146,8 +146,8 @@ body.darkMode #quizTheme {
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     padding: 2rem;
-    margin-left: 18%;
-    margin-right: 18%;
+    margin-left: 12%;
+    margin-right: 12%;
 }
 
 .QuizOptionBtn {
