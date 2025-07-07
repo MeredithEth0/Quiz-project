@@ -6,7 +6,7 @@ const URLp1 = "https://opentdb.com/api.php?amount=";
 let URLp2 = "10"; // Number of questions
 let URLp3 = "";   // e.g., "&category=9"
 let URLp4 = "";   // e.g., "&difficulty=easy"
-const URLp5 = "&type=multiple";
+const URLp5 = ""; // e.g., "&type=multiple"
 
 document.querySelectorAll(".QuizOptionBtn").forEach(btn => {
     btn.addEventListener("click", function() {
