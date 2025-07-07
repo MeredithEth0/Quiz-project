@@ -1,14 +1,14 @@
 * {
     font-family: helvetica, sans-serif;
-    font-size: 16px;
     text-align: center;
     margin: 0;
+    font-size: 1rem;
     padding-bottom: 4px;
 }
 
 html, body {
     background-color: #eef7ff;
-    min-height: 100vh;
+    min-height: 99vh;
 
 }
 
@@ -25,7 +25,8 @@ html, body {
 #resetButton,
 #darkModeButton,
 #howToButton,
-#backButton {
+#backButton,
+#nextButton {
     background-color: #1777b8;
     border: none;
     color: white;
@@ -37,7 +38,7 @@ html, body {
 }
 
 #bannerTitle {
-    font-size: 2rem;
+    font-size: 1.5rem;
     background-color: #1777b8;
 }
 
@@ -45,22 +46,10 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    font-size: 14px;
     background-color: #1777b8;
     padding: 10px;
     color: white;
     text-align: left;;
-}
-
-#nextButton {
-    background-color: #1777b8;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 15%;
-    min-width: 125px;
 }
 
 .answer-btn {
@@ -69,7 +58,6 @@ footer {
     border: none;
     padding: 12px 24px;
     border-radius: 5px;
-    font-size: 16px;
     width: 40%;
     margin-bottom: 5px;
     min-width: 150px;
@@ -87,7 +75,7 @@ footer {
 
 #quizTheme {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #0a6aaa;
 }
 
@@ -96,55 +84,55 @@ footer {
     margin-right: 2%;
 }
 
-body.darkMode {
+.darkMode body {
     background-color: #181c24;
     color: #f5f5f5;
 }
 
-body.darkMode .topBanner,
-body.darkMode footer,
-body.darkMode #bannerTitle,
-body.darkMode #resetButton,
-body.darkMode #darkModeButton,
-body.darkMode #nextButton,
-body.darkMode #howToButton,
-body.darkMode .answer-btn,
-body.darkMode .QuizOptionBtn,
-body.darkMode #backButton {
+.darkMode .topBanner,
+.darkMode footer,
+.darkMode #bannerTitle,
+.darkMode #resetButton,
+.darkMode #darkModeButton,
+.darkMode #nextButton,
+.darkMode #howToButton,
+.darkMode .answer-btn,
+.darkMode .QuizOptionBtn,
+.darkMode #backButton{
     background-color: #222a36;
     color: #fff;
 }
 
-body.darkMode #opentdblink{
+.darkMode #opentdblink{
     color: rgb(64, 187, 64);
 }
 
-body.darkMode #darkModeButton:hover,
-body.darkMode #resetButton:hover,
-body.darkMode #nextButton:hover,
-body.darkMode #howToButton:hover,
-body.darkMode .answer-btn:hover,
-body.darkMode .QuizOptionBtn:hover,
-body.darkMode #backButton:hover {
+.darkMode #darkModeButton:hover,
+.darkMode #resetButton:hover,
+.darkMode #nextButton:hover,
+.darkMode #howToButton:hover,
+.darkMode .answer-btn:hover,
+.darkMode .QuizOptionBtn:hover,
+.darkMode #backButton:hover {
     background-color: #1c222c;
 }
 
-body.rightAnswer .answer-btn{
+.rightAnswer .answer-btn{
     background-color: green;
 }
 
-body.wrongAnswer .answer-btn {
+.wrongAnswer .answer-btn {
     background-color: red;
 }
 
-body.darkMode #quizTheme {
+.darkMode #quizTheme {
     color: #5ecfff;
 }
 
 .quizOptions {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
     padding: 2rem;
     margin-left: 12%;
     margin-right: 12%;
@@ -156,6 +144,27 @@ body.darkMode #quizTheme {
     color: white;
     padding: 24px 24px;
     border-radius: 5px;
-    font-size: 20px;
-    min-width: 100px;
+    min-width: 10%;
+}
+
+body,
+.topBanner,
+footer,
+#bannerTitle,
+#resetButton,
+#darkModeButton,
+#nextButton,
+#howToButton,
+.answer-btn,
+.QuizOptionBtn,
+#backButton {
+    transition: background-color 0.6s, color 0.6s;
+}
+
+/* Below are media queries for responsive design */
+
+@media (max-width: 900px) {
+    .feedbackLbl {
+        display: none !important;
+    }
 }

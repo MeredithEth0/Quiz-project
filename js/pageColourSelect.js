@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeButton = document.getElementById('darkModeButton');
-    const body = document.body;
+    const html = document.documentElement; // Use <html> instead of <body>
 
     // Optional: Remember preference
     if (localStorage.getItem('darkMode') === 'enabled') {
-        body.classList.add('darkMode');
+        html.classList.add('darkMode');
         darkModeButton.textContent = 'Light Mode';
     }
 
     darkModeButton.addEventListener('click', function() {
-        body.classList.toggle('darkMode');
-        const enabled = body.classList.contains('darkMode');
+        html.classList.toggle('darkMode');
+        const enabled = html.classList.contains('darkMode');
         darkModeButton.textContent = enabled ? 'Light Mode' : 'Dark Mode';
         localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
     });

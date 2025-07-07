@@ -1,12 +1,10 @@
 // Prepare the variables for storing the array of questions, score and question number
-let questions = [];
 let currentQuestion = 0;
 let currentQuestionNum = 1;
 let score = 0;
+const questions = JSON.parse(localStorage.getItem("questions") || "[]")
 
-const apiUrl = localStorage.getItem("selectedQuizUrl");
-const catName = localStorage.getItem("selectedQuizCat");
-quizTheme.textContent = catName;
+displayQuestions();
 
 // func to decode HTML 
 function decodeHTML(html) {
@@ -23,14 +21,6 @@ function shuffle(array) {
     }
     return array;
 }
-
-// Fetch questions API and start quiz
-fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-        questions = data.results;
-        displayQuestions();
-    });
 
 function displayQuestions() {
     const q = questions[currentQuestion];
@@ -72,10 +62,10 @@ function selectAnswer(selected, correct) {
 
     let feedback = "";
     if (selected === correct) {
-        feedback = "<br><p style='color:green;'><strong>Correct answer!</strong></p><br>";
+        feedback = "<p class='feedbackLbl' style='color:green;'><br><strong>Correct answer!</strong><br></p>";
         score++;
     } else {
-        feedback = `<br><p style='color:red;'>Wrong! The correct answer was: <strong>${correct}</strong></p><br>`;
+        feedback = `<p class='feedbackLbl' style='color:red;'><br>Wrong! The correct answer was: <strong>${correct}</strong><br></p>`;
     }
 
     document.getElementById("quizContainer").innerHTML += feedback;
@@ -96,12 +86,3 @@ document.getElementById("nextButton").addEventListener("click", function() {
     }
 });
 
-//Button on the bottom of the page to reset the quiz (which refreshes the webpage)
-document.getElementById("resetButton").addEventListener("click",function(){
-    location.reload();
-});
-
-//this adds function to the back button
-document.getElementById("backButton").addEventListener("click",function(){
-    window.location.href = "index.html";
-})

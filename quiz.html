@@ -4,10 +4,17 @@
     <head>
         <title id="quizTitle">Quiz</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--This script stops the page causing a "flashbang" effect on load if the page was in dark mode before the refresh-->
+        <script>
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('darkMode');
+        }
+        </script>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
-    <body style="overflow: hidden;">
+    <body style="overflow: auto;">
         <div class="topBanner">
             <button id="darkModeButton">Dark Mode</button>
             <h1 id="bannerTitle">Quiz website</h1>
@@ -16,17 +23,19 @@
         </div>
         <main>
             <br>
-            <p id="question">Welcome to the quiz website I am making for my portfolio.<br>
-            Below there will be 10 questions randomly generated around the theme of:</p><br>
+            <p id="question">Below there will be 10 questions randomly generated around the theme of:</p>
             <p id="quizTheme">Unknown</p>
             <br>
             <div id="quizContainer">Loading...<br><br>If the questions do not load please press the "Reset Quiz" button.</div>
-            <button id="nextButton" style="display:none;">Next Question</button>
-            <br><br>
+            <div class="quizButtons">
             <button id="resetButton">Reset Quiz</button>
+            <button id="nextButton" style="display:none;">Next Question</button>
+            </div>
         </main>
-        <script src="js/quiz.js"></script>
+        <script src="js/APICall.js"></script>
+        <script src="js/quizMechanics.js"></script>
         <script src="js/pageColourSelect.js"></script>
+        <script src="js/navButtons.js"></script>
         <footer>2025 Quiz website by: Ethan Meredith</footer>
     </body>
 

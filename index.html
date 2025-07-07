@@ -4,6 +4,13 @@
     <head>
         <title>Quiz Menu</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--This script stops the page causing a "flashbang" effect on load if the page was in dark mode before the refresh-->
+        <script>  
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('darkMode');
+        }
+        </script>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -19,7 +26,6 @@
             <h2>Below you will find 25 categories of questions which you can choose from to<br>do a 10 question quiz. 
                 The quiz questions are genreated from an API which can<br>be found at 
                 <a id="opentdblink" href="https://opentdb.com" target="_blank" rel="noopener noreferrer">opentdb</a>. 
-                <br><br>I hope you enjoy :)</h2>
             
             <div class="quizOptions"> <!--This assigns the unique URL to each button to generate 10 multiple choice questions of the player choosing-->
                 <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&type=multiple">All Categories</button>
