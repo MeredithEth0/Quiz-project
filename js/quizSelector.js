@@ -1,10 +1,22 @@
+// Example simple URL: https://opentdb.com/api.php?amount=10&type=multiple
+// Example complex URL: https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
+
+// This is the URl to pull the API, it is formulated of 5 pieces to allow user control on what quiz they get
+const URLp1 = "https://opentdb.com/api.php?amount=";
+let URLp2 = "10"; // Number of questions
+let URLp3 = "";   // e.g., "&category=9"
+let URLp4 = "";   // e.g., "&difficulty=easy"
+const URLp5 = "&type=multiple";
+
 document.querySelectorAll(".QuizOptionBtn").forEach(btn => {
     btn.addEventListener("click", function() {
         //This harvest the URL from the data-url
-        const apiUrl = btn.getAttribute("data-url");
+        URLp3 = btn.getAttribute("data-url");
         const categoryName = btn.textContent.trim();
         //this stores the URL into local storage for the next page
-        localStorage.setItem("selectedQuizUrl", apiUrl);
+        const finalURL = `${URLp1}${URLp2}${URLp3}${URLp4}${URLp5}`;
+        console.log(finalURL)
+        localStorage.setItem("selectedQuizUrl", finalURL);
         localStorage.setItem("selectedQuizCat", categoryName);
         window.location.href = "quiz.html";
     });

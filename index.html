@@ -3,8 +3,8 @@
 
     <head>
         <title>Quiz Menu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
         <!--This script stops the page causing a "flashbang" effect on load if the page was in dark mode before the refresh-->
         <script>  
         if (localStorage.getItem('darkMode') === 'enabled') {
@@ -27,32 +27,32 @@
                 The quiz questions are genreated from an API which can<br>be found at 
                 <a id="opentdblink" href="https://opentdb.com" target="_blank" rel="noopener noreferrer">opentdb</a>. 
             
-            <div class="quizOptions"> <!--This assigns the unique URL to each button to generate 10 multiple choice questions of the player choosing-->
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&type=multiple">All Categories</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=9&type=multiple">General Knowledge</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=10&type=multiple">Books</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=11&type=multiple">Films</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=12&type=multiple">Music</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=13&type=multiple">Theatre</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=14&type=multiple">Television</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=15&type=multiple">Video Games</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=16&type=multiple">Board Games</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=17&type=multiple">Science & Nature</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=18&type=multiple">Computing</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=19&type=multiple">Mathematics</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=20&type=multiple">Mythology</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=21&type=multiple">Sports</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=22&type=multiple">Geography</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=23&type=multiple">History</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=24&type=multiple">Politics</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=25&type=multiple">Art</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=26&type=multiple">Celebrities</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=27&type=multiple">Animals</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=28&type=multiple">Vehicles</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=29&type=multiple">Comics</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=30&type=multiple">Gadgets</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=31&type=multiple">Anime & Manga</button>
-                <button class="QuizOptionBtn" data-url="https://opentdb.com/api.php?amount=10&category=32&type=multiple">Cartoons & Animation</button>
+            <div class="quizOptions"> <!--This assigns category choice to the quiz API URL-->
+                <button class="QuizOptionBtn" data-url="">All Categories</button>
+                <button class="QuizOptionBtn" data-url="&category=9">General Knowledge</button>
+                <button class="QuizOptionBtn" data-url="&category=10">Books</button>
+                <button class="QuizOptionBtn" data-url="&category=11">Films</button>
+                <button class="QuizOptionBtn" data-url="&category=12">Music</button>
+                <button class="QuizOptionBtn" data-url="&category=13">Theatre</button>
+                <button class="QuizOptionBtn" data-url="&category=14">Television</button>
+                <button class="QuizOptionBtn" data-url="&category=15">Video Games</button>
+                <button class="QuizOptionBtn" data-url="&category=16">Board Games</button>
+                <button class="QuizOptionBtn" data-url="&category=17">Science & Nature</button>
+                <button class="QuizOptionBtn" data-url="&category=18">Computing</button>
+                <button class="QuizOptionBtn" data-url="&category=19">Mathematics</button>
+                <button class="QuizOptionBtn" data-url="&category=20">Mythology</button>
+                <button class="QuizOptionBtn" data-url="&category=21">Sports</button>
+                <button class="QuizOptionBtn" data-url="&category=22">Geography</button>
+                <button class="QuizOptionBtn" data-url="&category=23">History</button>
+                <button class="QuizOptionBtn" data-url="&category=24">Politics</button>
+                <button class="QuizOptionBtn" data-url="&category=25">Art</button>
+                <button class="QuizOptionBtn" data-url="&category=26">Celebrities</button>
+                <button class="QuizOptionBtn" data-url="&category=27">Animals</button>
+                <button class="QuizOptionBtn" data-url="&category=28">Vehicles</button>
+                <button class="QuizOptionBtn" data-url="&category=29">Comics</button>
+                <button class="QuizOptionBtn" data-url="&category=30">Gadgets</button>
+                <button class="QuizOptionBtn" data-url="&category=31">Anime & Manga</button>
+                <button class="QuizOptionBtn" data-url="&category=32">Cartoons & Animation</button>
                 <br>
             </div>
         </main>

@@ -3,6 +3,10 @@ let currentQuestion = 0;
 let currentQuestionNum = 1;
 let score = 0;
 const questions = JSON.parse(localStorage.getItem("questions") || "[]")
+if (questions === "") {
+    console.log("error loading API... Refreshing")
+    location.reload()
+}
 
 displayQuestions();
 
@@ -27,7 +31,7 @@ function displayQuestions() {
     const answers = [q.correct_answer, ...q.incorrect_answers];
     shuffle(answers); // calls shuffle func
     
-    let html = `<h2 id="question">Question number: ${decodeHTML(currentQuestionNum)}</h2><h2 id="question">${decodeHTML(q.question)}</h2>`;
+    let html = `<h2 id="question">Question number: ${decodeHTML(currentQuestionNum)} of ${questions.length}</h2><h2 id="question">${decodeHTML(q.question)}</h2>`;
     answers.forEach(answer => {
         html += `<button class="answer-btn" data-answer="${decodeHTML(answer)}">${decodeHTML(answer)}</button><br>`;
     });
