@@ -17,14 +17,26 @@ function decodeHTML(html) {
     return txt.value;
 }
 
-// func to shuffle the answers to avoid repeat positioning
+/**
+ * Below is a function that shuffles an array in place using the Fisher-Yates algorithm.
+ * This ensures that each option position is just as likely as another. (Every item has an equal chance for every spot)
+ */
+
 function shuffle(array) {
+    // Start from the last element and move backwards
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        // Pick a random index from 0 to i (inclusive)
+        let j = Math.floor(Math.random() * (i + 1));
+        
+        // Swap elements at indices i and j
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
+    // Return the shuffled array
     return array;
 }
+
 
 function displayQuestions() {
     const q = questions[currentQuestion];

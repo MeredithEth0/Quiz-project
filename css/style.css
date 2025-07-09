@@ -9,7 +9,6 @@
 html, body {
     background-color: #eef7ff;
     min-height: 99vh;
-
 }
 
 .topBanner {
@@ -21,6 +20,51 @@ html, body {
     color: white;
     position: relative;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1777b8;
+    padding: 10px;
+    color: white;
+    text-align: left;;
+}
+
+#bannerTitle {
+    font-size: 1.5rem;
+    background-color: #1777b8;
+}
+
+#quizTheme {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0a6aaa;
+}
+
+#question {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.quizOptions {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    padding: 2rem;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.rightAnswer .answer-btn{
+    background-color: green;
+}
+
+.wrongAnswer .answer-btn {
+    background-color: red;
+}
+
+/*=================================== Buttons ===================================*/
 
 #resetButton,
 #darkModeButton,
@@ -37,19 +81,13 @@ html, body {
     min-width: 100px;
 }
 
-#bannerTitle {
-    font-size: 1.5rem;
+.QuizOptionBtn {
     background-color: #1777b8;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #1777b8;
-    padding: 10px;
+    border: none;
     color: white;
-    text-align: left;;
+    padding: 24px 24px;
+    border-radius: 5px;
+    min-width: 10%;
 }
 
 .answer-btn {
@@ -63,6 +101,8 @@ footer {
     min-width: 150px;
 }
 
+/*================================= Hover effects for buttons =================================*/
+
 .answer-btn:hover,
 #resetButton:hover,
 #darkModeButton:hover,
@@ -73,16 +113,23 @@ footer {
     background-color: #175985;
 }
 
-#quizTheme {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #0a6aaa;
+/*============================== Transition effects for smooth color changes ==============================*/
+
+body,
+.topBanner,
+footer,
+#bannerTitle,
+#resetButton,
+#darkModeButton,
+#nextButton,
+#howToButton,
+.answer-btn,
+.QuizOptionBtn,
+#backButton {
+    transition: background-color 0.6s, color 0.6s;
 }
 
-#question {
-    margin-left: 2%;
-    margin-right: 2%;
-}
+/*=================================== Dark Mode styling ===================================*/
 
 .darkMode body {
     background-color: #181c24;
@@ -117,51 +164,11 @@ footer {
     background-color: #1c222c;
 }
 
-.rightAnswer .answer-btn{
-    background-color: green;
-}
-
-.wrongAnswer .answer-btn {
-    background-color: red;
-}
-
 .darkMode #quizTheme {
     color: #5ecfff;
 }
 
-.quizOptions {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-    padding: 2rem;
-    margin-left: 12%;
-    margin-right: 12%;
-}
-
-.QuizOptionBtn {
-    background-color: #1777b8;
-    border: none;
-    color: white;
-    padding: 24px 24px;
-    border-radius: 5px;
-    min-width: 10%;
-}
-
-body,
-.topBanner,
-footer,
-#bannerTitle,
-#resetButton,
-#darkModeButton,
-#nextButton,
-#howToButton,
-.answer-btn,
-.QuizOptionBtn,
-#backButton {
-    transition: background-color 0.6s, color 0.6s;
-}
-
-/* Below are media queries for responsive design */
+/*================================= Below are media queries for responsive design =================================*/
 
 @media (max-width: 900px) {
     .feedbackLbl {
