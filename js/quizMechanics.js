@@ -15,12 +15,16 @@ function decodeHTML(html) {
  * Ensures answer options are presented in random order.
  */
 function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Swap
+    // Loop from the last element down to the second element
+    for (let currentIndex = array.length - 1; currentIndex > 0; currentIndex--) {
+        // Pick a random index from 0 to currentIndex
+        let randomIndex = Math.floor(Math.random() * (currentIndex + 1));
+        // Swap the elements at currentIndex and randomIndex
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
     return array;
 }
+
 
 /**
  * Displays the current question and answer options.

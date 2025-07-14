@@ -7,3 +7,8 @@ document.getElementById("resetButton").addEventListener("click",function(){
 document.getElementById("backButton").addEventListener("click",function(){
     window.location.href = "index.html";
 })
+
+//This will open a how to window for users to read and understand how to play the quiz
+document.getElementById("howToButton").addEventListener("click",function(){
+
+})

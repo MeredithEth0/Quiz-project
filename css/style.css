@@ -21,14 +21,31 @@ html, body {
     position: relative;
 }
 
-footer {
+.bottomBanner {
     position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
     bottom: 0;
     width: 100%;
     background-color: #1777b8;
-    padding: 10px;
+    padding: 5px;
     color: white;
-    text-align: left;;
+    height: 45px;
+}
+
+#creditContacts {
+    font-size: 1rem;
+    margin-left: 2rem;
+    align-self: center;
+}
+
+.rightSideLinks {
+    gap: 0.3rem;
+    margin-top: 10px;
+    padding-right: 2rem;
+    align-self: center;
+    filter: invert(1);
 }
 
 #bannerTitle {
@@ -117,7 +134,7 @@ footer {
 
 body,
 .topBanner,
-footer,
+.bottomBanner,
 #bannerTitle,
 #resetButton,
 #darkModeButton,
@@ -137,7 +154,7 @@ footer,
 }
 
 .darkMode .topBanner,
-.darkMode footer,
+.darkMode .bottomBanner,
 .darkMode #bannerTitle,
 .darkMode #resetButton,
 .darkMode #darkModeButton,
@@ -150,7 +167,7 @@ footer,
     color: #fff;
 }
 
-.darkMode #opentdblink{
+.darkMode a{
     color: rgb(64, 187, 64);
 }
 
@@ -173,5 +190,9 @@ footer,
 @media (max-width: 900px) {
     .feedbackLbl {
         display: none !important;
+    }
+
+    .bottomBanner {
+        visibility: hidden;
     }
 }
