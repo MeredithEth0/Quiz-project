@@ -25,7 +25,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /**
  * Displays the current question and answer options.
  * Handles the end-of-quiz state as well.

@@ -40,6 +40,10 @@ html, body {
     align-self: center;
 }
 
+#footerLink {
+    color: white;
+}
+
 .rightSideLinks {
     gap: 0.3rem;
     margin-top: 10px;
@@ -168,7 +172,7 @@ body,
 }
 
 .darkMode a{
-    color: rgb(64, 187, 64);
+    color: rgb(64, 187, 64) !important;
 }
 
 .darkMode #darkModeButton:hover,
