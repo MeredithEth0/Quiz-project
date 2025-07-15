@@ -19,14 +19,39 @@
             <h1 id="bannerTitle">Quiz Site Main Menu</h1>
             <button id="howToButton">How to play</button>
         </div>
+
+        <!-- Slide-down Info Box -->
+        <div id="howToPlayBox" class="info-box">
+            <div class="info-header">
+                <h2>How to play</h2>
+            </div>
+            <div class="info-body">
+                <p>Welcome to the quiz!<br>
+                Below you will be able to choose a difficulty and question category.<br>
+                Once you have pressed a category you will be taken to a page which has relevant questions.<br>
+                When you get a question right it will display green, when it is wrong it will go red and<br>
+                highlight the correct answer in green, there is no time limit so have fun!</p>
+
+            </div>
+            <div class="info-footer">
+                <button id="closeInfoBtn">Close</button>
+            </div>
+        </div>
+
         <main>
             <br>
             <h2>This is my quiz website I have designed as a portfolio piece to demonstrate my web-development ability.</h2><br>
             <h2>Below you will find 25 categories of questions which you can choose from to<br>do a 10 question quiz. 
                 The quiz questions are genreated from an API which can<br>be found at 
-                <a id="opentdblink" href="https://opentdb.com" target="_blank" rel="noopener noreferrer">opentdb</a>. 
-            <div class="quizSettings"> <!--- This configures the settings of the quiz API URL-->
-                
+                <a id="opentdblink" href="https://opentdb.com" target="_blank" rel="noopener noreferrer">opentdb</a>.</h2> <br>
+            <div class="quizSettings"> <!--This configures the settings of the quiz API URL-->
+                <form class="quizSettingsBox">
+                    <h2>Difficulty selector</h2>
+                    <input type="radio" class="quizSettingsRadio" name="difficulty" value="" checked> Any
+                    <input type="radio" class="quizSettingsRadio" name="difficulty" value="&difficulty=easy"> Easy
+                    <input type="radio" class="quizSettingsRadio" name="difficulty" value="&difficulty=medium"> Medium
+                    <input type="radio" class="quizSettingsRadio" name="difficulty" value="&difficulty=hard"> Hard
+                </form>
             </div>
             <div class="quizOptions"> <!--This assigns category choice to the quiz API URL-->
                 <button class="QuizOptionBtn" data-url="">All Categories</button>

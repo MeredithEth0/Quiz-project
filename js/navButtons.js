@@ -1,14 +1,41 @@
-//Button on the bottom of the page to reset the quiz (which refreshes the webpage)
-document.getElementById("resetButton").addEventListener("click",function(){
-    location.reload();
+document.addEventListener("DOMContentLoaded", function () {
+    // --- Reset button functionality ---
+    const resetButton = document.getElementById("resetButton");
+    if (resetButton) {
+        resetButton.addEventListener("click", () => {
+            location.reload();
+        });
+    }
+
+    // --- Back button functionality ---
+    const backButton = document.getElementById("backButton");
+    if (backButton) {
+        backButton.addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    }
+
+    // --- How to Play functionality ---
+    const infoBox = document.getElementById("howToPlayBox");
+    const howToButton = document.getElementById("howToButton");
+    const closeInfoX = document.getElementById("closeInfoBox");
+    const closeInfoBtn = document.getElementById("closeInfoBtn");
+
+    if (howToButton && infoBox) {
+        howToButton.addEventListener("click", () => {
+            infoBox.classList.add("show");
+        });
+    }
+
+    if (closeInfoX && infoBox) {
+        closeInfoX.addEventListener("click", () => {
+            infoBox.classList.remove("show");
+        });
+    }
+
+    if (closeInfoBtn && infoBox) {
+        closeInfoBtn.addEventListener("click", () => {
+            infoBox.classList.remove("show");
+        });
+    }
 });
-
-//this adds function to the back button
-document.getElementById("backButton").addEventListener("click",function(){
-    window.location.href = "index.html";
-})
-
-//This will open a how to window for users to read and understand how to play the quiz
-document.getElementById("howToButton").addEventListener("click",function(){
-
-})

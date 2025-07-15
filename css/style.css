@@ -77,6 +77,11 @@ html, body {
     margin-right: 12%;
 }
 
+.quizSettings {
+    display: flex;
+    justify-content: space-around;
+}
+
 .rightAnswer .answer-btn{
     background-color: green;
 }
@@ -91,7 +96,8 @@ html, body {
 #darkModeButton,
 #howToButton,
 #backButton,
-#nextButton {
+#nextButton,
+#closeInfoBtn {
     background-color: #1777b8;
     border: none;
     color: white;
@@ -102,7 +108,8 @@ html, body {
     min-width: 100px;
 }
 
-.QuizOptionBtn {
+.QuizOptionBtn,
+.quizSettingsBox {
     background-color: #1777b8;
     border: none;
     color: white;
@@ -122,6 +129,39 @@ html, body {
     min-width: 150px;
 }
 
+/*===============================How to box (hidden by default) ====================================*/
+
+.info-box {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    background-color: #eef7ff;
+    box-shadow: 1px 4px 6px rgba(0,0,0,0.1);
+    transition: top 0.4s ease-in-out;
+    z-index: 1000;
+    padding: 1em;
+}
+
+.info-box.show {
+    top: 0;
+}
+
+.info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-body {
+    margin-top: 0.5em;
+}
+
+.info-footer {
+    margin-top: 1em;
+    text-align: center;
+}
 /*================================= Hover effects for buttons =================================*/
 
 .answer-btn:hover,
@@ -130,29 +170,21 @@ html, body {
 #nextButton:hover,
 #howToButton:hover,
 .QuizOptionBtn:hover,
-#backButton:hover {
+#backButton:hover,
+#closeInfoBtn:hover {
     background-color: #175985;
 }
 
 /*============================== Transition effects for smooth color changes ==============================*/
 
-body,
-.topBanner,
-.bottomBanner,
-#bannerTitle,
-#resetButton,
-#darkModeButton,
-#nextButton,
-#howToButton,
-.answer-btn,
-.QuizOptionBtn,
-#backButton {
-    transition: background-color 0.6s, color 0.6s;
+* {
+    transition: background-color 0.5s, color 0.1s;
 }
 
 /*=================================== Dark Mode styling ===================================*/
 
-.darkMode body {
+.darkMode body,
+.darkMode .info-box {
     background-color: #181c24;
     color: #f5f5f5;
 }
@@ -166,7 +198,9 @@ body,
 .darkMode #howToButton,
 .darkMode .answer-btn,
 .darkMode .QuizOptionBtn,
-.darkMode #backButton{
+.darkMode #backButton,
+.darkMode .quizSettingsBox,
+.darkMode #closeInfoBtn {
     background-color: #222a36;
     color: #fff;
 }
@@ -181,7 +215,8 @@ body,
 .darkMode #howToButton:hover,
 .darkMode .answer-btn:hover,
 .darkMode .QuizOptionBtn:hover,
-.darkMode #backButton:hover {
+.darkMode #backButton:hover,
+.darkMode #closeInfoBtn:hover {
     background-color: #1c222c;
 }
 
@@ -198,5 +233,10 @@ body,
 
     .bottomBanner {
         visibility: hidden;
+    }
+
+    .quizSettingsBox {
+        display: grid;
+        gap: 0.3rem;
     }
 }
