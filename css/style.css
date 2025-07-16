@@ -239,4 +239,8 @@ html, body {
         display: grid;
         gap: 0.3rem;
     }
+
+    .info-box {
+        width: 80%;
+    }
 }
