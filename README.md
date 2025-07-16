@@ -2,7 +2,7 @@
 # Overview 
 The project is to create a quiz website where users can answer a series of questions and receive feedback or be graded on their performance.
 
-<u><strong>If you don't want to scroll through all of this to get to the deployment link [CLICK HERE](#Deployment) to go straight to the deployment section.<strong><u>
+<u><strong>If you don't want to scroll through all of this to get to the deployment link [CLICK HERE](#Deployment) to go straight to the deployment section.</strong></u>
 #### Project brief
 The quiz will have questions with multiple-choice options and navigation buttons *(next, submit, etc.)*. Each question can be displayed on its own page or section. The quiz can feature multiple types of questions *(multiple-choice, true/false, fill-in-the-blank, etc.)* The questions should be loaded at random every time. The online quiz should demonstrate your understanding and application of JavaScript, HTML and CSS. At the end the users should receive a summary of their performance, including the number of correct answers, total score and have the correct answer pointed out on wrong questions.
 
