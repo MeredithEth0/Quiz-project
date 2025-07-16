@@ -108,6 +108,7 @@ Below are technologies I used during the production process.
 The quiz questions were pulled from an API available on [OpenTDB](https://opentdb.com)
 
 This is an example URL (which is also the default) which is pulled from this API: https://opentdb.com/api.php?amount=10
+
 The URL at its most complex can be: https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
 
 I will go into my JS later which builds the URL my quiz uses for calling the questions.
