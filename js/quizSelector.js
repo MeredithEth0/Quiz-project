@@ -13,7 +13,8 @@ document.querySelectorAll(".QuizOptionBtn").forEach(btn => {
         //This harvest the URL from the data-url
         URLp3 = btn.getAttribute("data-url") || "";
         const selectedDifficultyInput = document.querySelector('input[name="difficulty"]:checked');
-        URLp4 = selectedDifficultyInput ? `&difficulty=${selectedDifficultyInput.value}` : '';
+        URLp4 = selectedDifficultyInput ? selectedDifficultyInput.value : '';
+
 
         const categoryName = btn.textContent.trim();
         //this stores the URL into local storage for the next page

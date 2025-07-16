@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeButton = document.getElementById('darkModeButton');
     const html = document.documentElement; // Use <html> instead of <body>
 
-    // Optional: Remember preference
+    // Remember preference
     if (localStorage.getItem('darkMode') === 'enabled') {
         html.classList.add('darkMode');
         darkModeButton.textContent = 'Light Mode';

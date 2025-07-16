@@ -18,18 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- How to Play functionality ---
     const infoBox = document.getElementById("howToPlayBox");
     const howToButton = document.getElementById("howToButton");
-    const closeInfoX = document.getElementById("closeInfoBox");
     const closeInfoBtn = document.getElementById("closeInfoBtn");
 
     if (howToButton && infoBox) {
         howToButton.addEventListener("click", () => {
             infoBox.classList.add("show");
-        });
-    }
-
-    if (closeInfoX && infoBox) {
-        closeInfoX.addEventListener("click", () => {
-            infoBox.classList.remove("show");
         });
     }
 
