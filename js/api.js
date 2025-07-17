@@ -3,9 +3,11 @@
 // Get the API URL and category name from localStorage
 const apiURL = localStorage.getItem("selectedQuizUrl");
 const catName = localStorage.getItem("selectedQuizCat");
+const quizDifficultyVar = localStorage.getItem("selectedQuizDiff")
 
 // Set the quiz theme/category on the page
 quizTheme.textContent = catName;
+quizDifficulty.textContent = quizDifficultyVar;
 
 // Quiz state variables (reset on each new quiz)
 let currentQuestion = 0;

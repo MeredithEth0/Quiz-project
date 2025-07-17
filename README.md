@@ -2,9 +2,50 @@
 # Overview 
 The project is to create a quiz website where users can answer a series of questions and receive feedback or be graded on their performance.
 
-<u><strong>If you don't want to scroll through all of this to get to the deployment link [CLICK HERE](#Deployment) to go straight to the deployment section.</strong></u>
+**If you don't want to scroll through all of this to get to the deployment link [CLICK HERE](#Deployment) to go straight to the deployment section.**
 #### Project brief
 The quiz will have questions with multiple-choice options and navigation buttons *(next, submit, etc.)*. Each question can be displayed on its own page or section. The quiz can feature multiple types of questions *(multiple-choice, true/false, fill-in-the-blank, etc.)* The questions should be loaded at random every time. The online quiz should demonstrate your understanding and application of JavaScript, HTML and CSS. At the end the users should receive a summary of their performance, including the number of correct answers, total score and have the correct answer pointed out on wrong questions.
+
+# Table of Contents
+This will give you quick links to each section of this README should you need to navigate directly to a section.
+- [Overview](#Overview)
+- [Table of Contents](#table-of-contents)
+- [File Organisation](#file-organisation)
+- [Key Features](#key-features)
+- [Technology](#technology)
+- [Testing](#testing)
+- [Accessibility](#accessibilty)
+- [Deployment](#deployment)
+
+# File Organisation
+Below is the tree of any files relating to this project to show my file structure.
+```
+C:.
+|   .gitattributes
+|   index.html              #Primary/Landing page
+|   quiz.html               #Page that displays the quiz questions
+|   README.md               #The README that you are reading now
+|
++---assets                  #Assets folder to store images
+|   +---error screenshots   #Folder of errors referenced in this file
+|   |       Index error.png
+|   |
+|   \---images              #Images used on the HTML files
+|           favicon.png
+|           github.png
+|           linkedin.png
+|
++---css                     #Styling
+|       style.css
+|
++---js                      #JavaScript files
+|       api.js
+|       navButtons.js
+|       pageColourSelect.js
+|       quizMechanics.js
+|       quizSelector.js
+|
+```
 
 # Key Features
 My top 3 features which I feel to be the most impressive are:
@@ -32,13 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 In this script there is a large chunk of the CSS dedicated to the looks of darkmode and enabling a transition between light and dark mode for the page. Below is the segment of CSS responsible for dark mode.
 ```CSS
-/*============================== Transition effects for smooth color changes ==============================*/
+/*================== Transition effects for smooth color changes =====================*/
 
 * {
     transition: background-color 0.5s, color 0.1s;
 }
 
-/*=================================== Dark Mode styling ===================================*/
+/*=============================== Dark Mode styling ================================*/
 
 .darkMode body,
 .darkMode .info-box {
@@ -93,9 +134,9 @@ The script that fixed this issue is fit inline into the HTML at the top of the s
         </script>
 ```
 ### 2. Feature 2
-*To be added*
+*Coming soon*
 ### 3. Modular API URL construction
-*To be added*
+*Coming soon*
 # Technology
 Below are technologies I used during the production process.
 ### Languages used:
@@ -201,7 +242,7 @@ As the script api.js is called before quizMechanics.js this error is non-existen
 
 # Accessibilty
 - Look at lighthouse (upload succeeded pass)
-*To be added*
+*Coming soon*
 
 # Deployment
-- The webpage is deployed by GitHub pages. The URL for this page is [LINK](https://mereditheth0.github.io/Quiz-project/)
+- The webpage is deployed by GitHub pages. To get to this page  [CLICK HERE](https://mereditheth0.github.io/Quiz-project/)

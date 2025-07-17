@@ -81,12 +81,31 @@ html, body {
     justify-content: space-around;
 }
 
-.rightAnswer .answer-btn{
-    background-color: green;
+input[type="radio"] {
+    width: 1em;
+    height: 1em;
 }
 
-.wrongAnswer .answer-btn {
-    background-color: red;
+#diffAny { accent-color: #5ecfff; }
+#diffEasy { accent-color: #40bb40; }
+#diffMedium { accent-color: #ffb300; }
+#diffHard { accent-color: #ff0000; }
+
+label:has(#diffAny:checked) {
+    color: #f5f5f5;
+}
+label:has(#diffEasy:checked) {
+    color: #40bb40;
+}
+label:has(#diffMedium:checked) {
+    color: #ffb300;
+}
+label:has(#diffHard:checked) {
+    color: #ff0000;
+}
+
+#quizDifficulty {
+    font-size: 1.2rem;
 }
 
 /*=================================== Buttons ===================================*/
@@ -127,6 +146,15 @@ html, body {
     margin-bottom: 5px;
     min-width: 150px;
 }
+
+.rightAnswer .answer-btn{
+    background-color: green;
+}
+
+.wrongAnswer .answer-btn {
+    background-color: red;
+}
+
 
 /*===============================How to box (hidden by default) ====================================*/
 
@@ -205,7 +233,7 @@ html, body {
 }
 
 .darkMode a{
-    color: rgb(64, 187, 64) !important;
+    color: #40bb40 !important;
 }
 
 .darkMode #darkModeButton:hover,
@@ -223,6 +251,10 @@ html, body {
     color: #5ecfff;
 }
 
+.darkMode label:has(#diffAny:checked) {
+    color: #5ecfff;
+}
+
 /*================================= Below are media queries for responsive design =================================*/
 
 @media (max-width: 900px) {
@@ -235,7 +267,8 @@ html, body {
     }
 
     .quizSettingsBox {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 0.3rem;
     }
 
@@ -243,3 +276,4 @@ html, body {
         width: 80%;
     }
 }
+
