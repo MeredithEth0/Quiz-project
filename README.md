@@ -49,7 +49,9 @@ C:.
 
 # Key Features
 My top 3 features which I feel to be the most impressive are:
-
+- [Dark-mode button](#1-dark-mode-button)
+- [Dynamic API construction and error handling](#2-dynamic-api-construction-and-error-handling)
+- [Accessible UI with QOL features](#3-accessible-ui-with-qol-features)
 ### 1. Dark-mode button
 Below is the script called "pageColourSelect.js" which controls the dark mode buttons.
 ```JavaScript
@@ -70,16 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
     });
 });
-```
+``` 
 In this script there is a large chunk of the CSS dedicated to the looks of darkmode and enabling a transition between light and dark mode for the page. Below is the segment of CSS responsible for dark mode.
 ```CSS
-/*================== Transition effects for smooth color changes =====================*/
+/*============================== Transition effects for smooth color changes ==============================*/
 
 * {
     transition: background-color 0.5s, color 0.1s;
 }
 
-/*=============================== Dark Mode styling ================================*/
+/*=================================== Dark Mode styling ===================================*/
 
 .darkMode body,
 .darkMode .info-box {
@@ -104,7 +106,7 @@ In this script there is a large chunk of the CSS dedicated to the looks of darkm
 }
 
 .darkMode a{
-    color: rgb(64, 187, 64) !important;
+    color: #40bb40 !important;
 }
 
 .darkMode #darkModeButton:hover,
@@ -121,6 +123,10 @@ In this script there is a large chunk of the CSS dedicated to the looks of darkm
 .darkMode #quizTheme {
     color: #5ecfff;
 }
+
+.darkMode label:has(#diffAny:checked) {
+    color: #5ecfff;
+}
 ```
 
 I added the ability for the page to remember your preference for when you visit again. A complication I encountered while implementing this was that when the page was refreshed or changed, it would briefly flash white causing a "flash-bang" effect which, in low light conditions could cause discomfort on the eyes and then, in return, a poor user experience.
@@ -133,10 +139,20 @@ The script that fixed this issue is fit inline into the HTML at the top of the s
         }
         </script>
 ```
-### 2. Feature 2
-*Coming soon*
-### 3. Modular API URL construction
-*Coming soon*
+### 2. Dynamic API construction and error handling
+Points to talk on
+- The script quizSelector.js and the UI allow users to assemble a request for the API to get a tailored quiz
+- The pieces of the API are stored using localStorage which makes this process multi-page compatible
+- It is designed with futureproofing in mind to allow more parameters (question amount and quiz type) should those features be requested for addition in the future.
+- This process is enturely UI driven making it an pleaseant and easy UX
+- Discuss the error handling for failed API requests
+### 3. Accessible UI with QOL features
+Points to talk on
+- The experience is friendly on any screen size and adapts dynamically (how was this achieved)
+- Use of dynamic feedback (colouring the buttons) to make it clear which answer was right and wrong
+- "How to play" window for new users
+- The colours and layout are designed with accessibilty in mind. (darkmode (reference part 1), buttons are larger and remain large even to screen size changes) 
+
 # Technology
 Below are technologies I used during the production process.
 ### Languages used:
