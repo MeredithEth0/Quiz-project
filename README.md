@@ -15,43 +15,53 @@ This will give you quick links to each section of this README should you need to
 - [Testing](#testing)
 - [Accessibility](#accessibility)
 - [Deployment](#deployment)
+- [Glossary](#glossary)
 
 # File Organisation
 Below is the tree of any files relating to this project to show my file structure.
 ```
-C:.
-|   .gitattributes
-|   index.html              #Primary/Landing page
-|   quiz.html               #Page that displays the quiz questions
-|   README.md               #The README that you are reading now
-|
-+---assets                  #Assets folder to store images
-|   +---error screenshots   #Folder of errors referenced in this file
-|   |       Index error.png
-|   |
-|   \---images              #Images used on the HTML files
-|           favicon.png
-|           github.png
-|           linkedin.png
-|
-+---css                     #Styling
-|       style.css
-|
-+---js                      #JavaScript files
-|       api.js
-|       navButtons.js
-|       pageColourSelect.js
-|       quizMechanics.js
-|       quizSelector.js
-|
+Quiz-project/
+├─ .vscode/
+│  └─ settings.json
+├─ assets/
+│  ├─ docs/
+│  │  ├─ darkMode_Index_Lighthouse.pdf
+│  │  ├─ darkMode_Quiz_Lighthouse.pdf
+│  │  ├─ lightMode_Index_Lighthouse.pdf
+│  │  └─ lightMode_Quiz_Lighthouse.pdf
+│  ├─ error screenshots/
+│  │  └─ Index error.png
+│  └─ images/
+│     ├─ lighthouse images/
+│     │  ├─ darkMode_Menu_Lighthouse.png
+│     │  ├─ lightMode_Menu_Lighthouse.png
+│     │  └─ lightMode_Quiz_Lighthouse.png
+│     ├─ favicon.png
+│     ├─ github.png
+│     └─ linkedin.png
+├─ css/
+│  └─ style.css
+├─ js/
+│  ├─ api.js
+│  ├─ navButtons.js
+│  ├─ pageColourSelect.js
+│  ├─ quizMechanics.js
+│  └─ quizSelector.js
+├─ Project Document/
+│  └─ Project+1.pdf
+├─ .gitattributes
+├─ index.html
+├─ quiz.html
+└─ README.md
+
 ```
 
 # Key Features
 My top 3 features which I feel to be the most impressive are:
-- [Dark-mode button](#1-dark-mode-button)
-- [Dynamic API construction and error handling](#2-dynamic-api-construction-and-error-handling)
-- [Accessible UI with QOL features](#3-accessible-ui-with-qol-features)
-## 1. Dark-mode button
+- [Dark-mode button](#dark-mode-button)
+- [Dynamic API construction and error handling](#dynamic-api-construction-and-error-handling)
+- [Accessible UI with QOL features](#accessible-ui-with-qol-features)
+## Dark-mode button
 Below is the script called "pageColourSelect.js" which controls the dark mode buttons.
 ```JavaScript
 document.addEventListener('DOMContentLoaded', function() {
@@ -138,7 +148,7 @@ The script that fixed this issue is fit inline into the HTML at the top of the s
         }
         </script>
 ```
-## 2. Dynamic API construction and error handling
+## Dynamic API construction and error handling
 
 >This segment will have some colliding information with the [technology](#technology) section where I will go into the API so be warned, there may be repetition.
 
@@ -193,12 +203,48 @@ This is set so on a failed call, it will attempt the call again to a maximum of 
 
 Since implementing this error handling, it has not failed or required user intervention.
 
-## 3. Accessible UI with QOL features
-Points to talk on
-- The experience is friendly on any screen size and adapts dynamically (how was this achieved)
-- Use of dynamic feedback (colouring the buttons) to make it clear which answer was right and wrong
-- "How to play" window for new users
-- The colours and layout are designed with accessibility in mind. (dark-mode (reference part 1), buttons are larger and remain large even to screen size changes) 
+## Accessible UI with QOL features
+
+In building this website ensuring the design is accessible and engaging has been at the forefront of the building process. 
+The implementation of dynamic layout and sizing was the first core accessibility feature I got working, The primary tool I used to achieve this was media queries, which are used in CSS.
+```
+/*==== Below are media queries for responsive design ====*/
+
+@media (max-width: 900px) {
+    .feedbackLbl {
+        display: none !important;
+    }
+
+    .bottomBanner {
+        visibility: hidden;
+    }
+
+    .quizSettingsBox {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .info-box {
+        width: 80%;
+    }
+}
+```
+As you can see in the CSS snapshot above, 4 parameters were used to make changes to the page when the width of the screen went below 900 pixels. For this page I have used both CSS grid and flex boxes where I found it suitable. The category buttons are organised using CSS grid whereas the quiz difficulty radio buttons (In the CSS as .quizSettingsBox).
+
+With using CSS grid it changes the amount of columns as to what will fit on the screen making it so I do not need to modify it using a media query.
+
+Also in the CSS snapshot above there is a snippet which states:
+```
+    .feedbackLbl {
+        display: none !important;
+    }
+```
+Now initially this entity was the only feedback the player got. It was simply a label that would appear either saying you got it right or you got it wrong and then tell you the correct answer. To allow for better accessibility for smaller screen uses I made it so the answer you pick will turn either red or green dependant on whether your answer is right or wrong, and if you choose wrong, the correct answer will highlight itself in green. This allowed me to (on smaller screens) remove the feedback label to allow for a smoother UX.
+
+I also added (as one of the final touch-ups to my webpage) a how-to button in the top right of the menu screen. When a user presses the button a menu will drop down from the top and give a brief but clear breakdown of how someone would play this quiz. It is a optional feature to not hinder regularly quizzers by forcing the pop-up but allows (if desired) users to read it, should they need the guidance.
+
+The colour palette used for this page was designed to remain simple and yet satisfying to look at. Another feature I added to allow for a smoother UX was a dark-mode toggle button which also had a carefully designed colour palette to make it enjoyable to look at while you play a quiz (A technical dive into this feature can be found [HERE](#dark-mode-button))
 
 # Technology
 Below are technologies I used during the production process.
@@ -206,6 +252,7 @@ Below are technologies I used during the production process.
 - HTML
 - CSS
 - JavaScript
+- Markdown (for this document)
 
 ## OpenTDB API
 
@@ -222,12 +269,12 @@ This is the JSON for the example API URL
 ```
 
 # Testing
-### HTML testing
+## HTML testing
 The two pages (index.html and quiz.html) were tested using [HTML validator](https://validator.w3.org/nu/#textarea). index.html came up with a single error, which quiz.html also had. 
 
 The screenshot of the error is below:
 
-![Index HTML error](Assets/error%20screenshots/Index%20error.png)
+![Index HTML error](assets/error%20screenshots/Index%20error.png)
 
 To resolve this error I modified the META tag to:
 ```HTML
@@ -238,12 +285,12 @@ To resolve this error I modified the META tag to:
 ```
 After this change both HTML documents passed testing.
 
-### CSS testing
+## CSS testing
 My project only has the one CSS file. This file is named style.css. My CSS was tested using [CSS validator](https://jigsaw.w3.org/css-validator/).
 
 This CSS passed without any errors leading to no modification being required. I may review it later if I decide to modify the look of my page.
 
-### JS testing
+## JS testing
 My project contains 5 JavaScript files. My JS files were tested using [JS validator](https://jshint.com)
 
 The JavaScript files tested initially were quizSelector.js, navButtons.js, pageColourSelect.js. the errors that were fed back during testing were all similar to:
@@ -301,8 +348,70 @@ let score = 0;
 As the script api.js is called before quizMechanics.js this error is non-existent. If quizMechanics.js were to be called before then an issue will occur.
 
 # Accessibility
-- Look at lighthouse (upload succeeded pass)
-*Coming soon*
+I have already lightly gone into the accessibility of my page in a earlier part of this document ([click here to view](#accessible-ui-with-qol-features)).
+
+This is to mostly highlight the accessibility testing that took place to ensure that any user could access and enjoy this website. The results of the lighthouse testing came back quite positive without changes being required for it to meet an acceptable score. I have attached screenshots below.
+
+Light-mode Index:
+![Light-mode Index report](/assets/images/lighthouse%20images/lightMode_Menu_Lighthouse.png)
+>Now with the score on this page I was confused how exactly the scores managed to differ between quiz and index when dark-modes' didn't. After review I noticed that the lower accessibility score is erroneous for the index. It reports that the issue comes from the text for any (on the difficulty radio) by default being light blue this is changed when the page loads into light-mode mode to avoid such issues. It appears that lighthouse is unable to notice this as at first load. It is light blue (not that any users would be able to tell due to how quickly it changes)
+
+Light-mode Quiz:
+![Light-mode Quiz report](/assets/images/lighthouse%20images/lightMode_Quiz_Lighthouse.png)
+Dark-mode Index (Dark-mode quiz had the exact same score so no screenshot provided):
+![Dark-mode Index & quiz report](/assets/images/lighthouse%20images/darkMode_Menu_Lighthouse.png)
+
+>These are copies of the PDF reports from the lighthouse testing for both pages:
+- [Light-mode Index Report](/assets/docs/lightMode_Index_Lighthouse.pdf)
+- [Light-mode Quiz Report](/assets/docs/lightMode_Quiz_Lighthouse.pdf)
+- [Dark-mode Index Report](/assets/docs/darkMode_Index_Lighthouse.pdf)
+- [Dark-mode Quiz Report](/assets/docs/darkMode_Quiz_Lighthouse.pdf)
 
 # Deployment
 - The webpage is deployed by GitHub pages. To get to this page  [CLICK HERE](https://mereditheth0.github.io/Quiz-project/)
+
+# Glossary
+This is a list of technical terminology used and their definitions/ meanings.
+
+- ##### HTML (HyperText Markup Language):
+ The language used to structure content on web pages.
+<br>
+
+- ##### CSS (Cascading Style Sheets):
+ A stylesheet language used to control the appearance and layout of web pages.
+ <br>
+
+- ##### JavaScript:
+ A programming language used on websites to create interactive features and dynamic content.
+<br>
+
+- ##### JSON (JavaScript Object Notation):
+ A lightweight data format commonly used for sending and receiving structured information, often from APIs.
+<br>
+
+- ##### Flex box:
+A modern CSS layout model that allows items in a container to be spaced and aligned efficiently in one dimension (row or column).
+<br>
+
+- ##### Grid Layout (CSS Grid):
+ A CSS system that allows developers to create complex, two-dimensional layouts using rows and columns.
+<br>
+
+- ##### localStorage:
+ A feature in modern web browsers that allows websites to save data (like preferences or progress) directly on a user’s device.
+<br>
+
+- ##### API (Application Programming Interface):
+ A tool that allows different software systems to communicate and exchange data, commonly used for retrieving data like quiz questions from third-party databases.
+<br>
+
+- ##### Error Handling:
+ The process of anticipating and managing issues that might occur during program execution, such as failed API calls.
+<br>
+
+- ##### Validator:
+ Tools that automatically check HTML, CSS, or JavaScript code for errors based on web standards.
+<br>
+- ##### Lighthouse:
+ An automated tool built into Chrome for analysing web pages. It provides scores and reports on performance, accessibility, best practices, SEO, and more.
+
