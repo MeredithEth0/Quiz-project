@@ -2,7 +2,7 @@
 // Example complex URL: https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
 
 // This is the URl to pull the API, it is formulated of 5 pieces to allow user control on what quiz they get
-const URLp1 = "https://opentdb.com/api.php?amount=";
+const URLp1 = "https://opentdb.com/api.php?amount="; //Fixed prefix
 let URLp2 = "10"; // Number of questions
 let URLp3 = "";   // e.g., "&category=9"
 let URLp4 = "";   // e.g., "&difficulty=easy"

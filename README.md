@@ -1,4 +1,3 @@
-
 # Overview 
 The project is to create a quiz website where users can answer a series of questions and receive feedback or be graded on their performance.
 
@@ -14,7 +13,7 @@ This will give you quick links to each section of this README should you need to
 - [Key Features](#key-features)
 - [Technology](#technology)
 - [Testing](#testing)
-- [Accessibility](#accessibilty)
+- [Accessibility](#accessibility)
 - [Deployment](#deployment)
 
 # File Organisation
@@ -52,7 +51,7 @@ My top 3 features which I feel to be the most impressive are:
 - [Dark-mode button](#1-dark-mode-button)
 - [Dynamic API construction and error handling](#2-dynamic-api-construction-and-error-handling)
 - [Accessible UI with QOL features](#3-accessible-ui-with-qol-features)
-### 1. Dark-mode button
+## 1. Dark-mode button
 Below is the script called "pageColourSelect.js" which controls the dark mode buttons.
 ```JavaScript
 document.addEventListener('DOMContentLoaded', function() {
@@ -73,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 ``` 
-In this script there is a large chunk of the CSS dedicated to the looks of darkmode and enabling a transition between light and dark mode for the page. Below is the segment of CSS responsible for dark mode.
+In this script there is a large chunk of the CSS dedicated to the looks of dark-mode and enabling a transition between light and dark mode for the page. Below is the segment of CSS responsible for dark mode.
 ```CSS
-/*============================== Transition effects for smooth color changes ==============================*/
+/*=============== Transition effects for smooth color changes ========================*/
 
 * {
     transition: background-color 0.5s, color 0.1s;
@@ -139,37 +138,82 @@ The script that fixed this issue is fit inline into the HTML at the top of the s
         }
         </script>
 ```
-### 2. Dynamic API construction and error handling
-Points to talk on
-- The script quizSelector.js and the UI allow users to assemble a request for the API to get a tailored quiz
-- The pieces of the API are stored using localStorage which makes this process multi-page compatible
-- It is designed with futureproofing in mind to allow more parameters (question amount and quiz type) should those features be requested for addition in the future.
-- This process is enturely UI driven making it an pleaseant and easy UX
-- Discuss the error handling for failed API requests
-### 3. Accessible UI with QOL features
+## 2. Dynamic API construction and error handling
+
+>This segment will have some colliding information with the [technology](#technology) section where I will go into the API so be warned, there may be repetition.
+
+The quiz questions are pulled from an API provided by [OpenTDB](https://opentdb.com/). This API allows for customisation on the call. There are 5 parameters to the URL.
+```
+const URLp1 = "https://opentdb.com/api.php?amount="; //Fixed prefix
+let URLp2 = "10"; // Number of questions
+let URLp3 = "";   // e.g., "&category=9"
+let URLp4 = "";   // e.g., "&difficulty=easy"
+let URLp5 = "";   // e.g., "&type=multiple"
+```
+I have labelled each part of the API call as URLp1 - URLp5. The first two parameters of the URL are required, the other 3 can be omitted which means the API will treat those fields as random.
+
+For the sake of this quiz I have allowed the user to control the quiz category and the quiz difficulty. I have however set it up in a way so in future, the other parameters can be added with relative ease, making this script future-proof. This has been done using standard buttons and radio buttons to allow a smooth user experience. The data from these buttons is stored using localStorage to allow this data to be called in any script making it multi-page compatible.
+
+During the process of implementing and testing the quiz handling I found that occasionally the API would fail to call. To mitigate the problem I added a "quiz reset" button which simply refreshed the page. This solution, as much as it would resolve the issue, created a poor user experience and made it feel clunky rather than smooth. 
+
+To resolve this, I added error handling to the API call.
+```
+function fetchQuizAPI(apiURL, attempts = 3) {
+    fetch(apiURL)
+        .then(response => response.text())
+        .then(text => {
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                throw new Error("Invalid JSON");
+            }
+            if (!data.results || !data.results.length) {
+                throw new Error("No questions returned from API.");
+            }
+            localStorage.setItem("questions", JSON.stringify(data.results));
+            // Reset quiz state for new quiz
+            currentQuestion = 0;
+            currentQuestionNum = 1;
+            score = 0;
+            startQuiz();
+        })
+        .catch(error => {
+            if (attempts > 1) {
+                // Retry after 1 second
+                setTimeout(() => fetchQuizAPI(apiURL, attempts - 1), 1000);
+            } else {
+                console.log("Failed to load quiz API, attempting refresh");
+                location.reload();
+            }
+        });
+}
+```
+This is set so on a failed call, it will attempt the call again to a maximum of 3 times with 1 second intervals on attempts. If this fails all 3 times it will refresh the page and begin again. This resolves failed calls without user intervention allowing for a seamless experience and vastly improves the UX. 
+
+Since implementing this error handling, it has not failed or required user intervention.
+
+## 3. Accessible UI with QOL features
 Points to talk on
 - The experience is friendly on any screen size and adapts dynamically (how was this achieved)
 - Use of dynamic feedback (colouring the buttons) to make it clear which answer was right and wrong
 - "How to play" window for new users
-- The colours and layout are designed with accessibilty in mind. (darkmode (reference part 1), buttons are larger and remain large even to screen size changes) 
+- The colours and layout are designed with accessibility in mind. (dark-mode (reference part 1), buttons are larger and remain large even to screen size changes) 
 
 # Technology
 Below are technologies I used during the production process.
-### Languages used:
+## Languages used:
 - HTML
 - CSS
 - JavaScript
 
-### Additional Tech:
-- OpenTDB API
+## OpenTDB API
 
 The quiz questions were pulled from an API available on [OpenTDB](https://opentdb.com)
 
 This is an example URL (which is also the default) which is pulled from this API: https://opentdb.com/api.php?amount=10
 
 The URL at its most complex can be: https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
-
-I will go into my JS later which builds the URL my quiz uses for calling the questions.
 
 This is the JSON for the example API URL
 
@@ -256,7 +300,7 @@ let score = 0;
 
 As the script api.js is called before quizMechanics.js this error is non-existent. If quizMechanics.js were to be called before then an issue will occur.
 
-# Accessibilty
+# Accessibility
 - Look at lighthouse (upload succeeded pass)
 *Coming soon*
 
