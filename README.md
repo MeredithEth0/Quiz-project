@@ -18,7 +18,7 @@ This will give you quick links to each section of this README should you need to
 - [Glossary](#glossary)
 
 # File Organisation
-Below is the tree of any files relating to this project to show my file structure.
+Below is the tree of my project folder which includes any files relating to this project. This is to showcase my file structure.
 ```
 Quiz-project/
 ├─ .vscode/
@@ -153,7 +153,7 @@ The script that fixed this issue is fit inline into the HTML at the top of the s
 >This segment will have some colliding information with the [technology](#technology) section where I will go into the API so be warned, there may be repetition.
 
 The quiz questions are pulled from an API provided by [OpenTDB](https://opentdb.com/). This API allows for customisation on the call. There are 5 parameters to the URL.
-```
+```JS
 const URLp1 = "https://opentdb.com/api.php?amount="; //Fixed prefix
 let URLp2 = "10"; // Number of questions
 let URLp3 = "";   // e.g., "&category=9"
@@ -167,7 +167,7 @@ For the sake of this quiz I have allowed the user to control the quiz category a
 During the process of implementing and testing the quiz handling I found that occasionally the API would fail to call. To mitigate the problem I added a "quiz reset" button which simply refreshed the page. This solution, as much as it would resolve the issue, created a poor user experience and made it feel clunky rather than smooth. 
 
 To resolve this, I added error handling to the API call.
-```
+```JS
 function fetchQuizAPI(apiURL, attempts = 3) {
     fetch(apiURL)
         .then(response => response.text())
@@ -207,7 +207,7 @@ Since implementing this error handling, it has not failed or required user inter
 
 In building this website ensuring the design is accessible and engaging has been at the forefront of the building process. 
 The implementation of dynamic layout and sizing was the first core accessibility feature I got working, The primary tool I used to achieve this was media queries, which are used in CSS.
-```
+```CSS
 /*==== Below are media queries for responsive design ====*/
 
 @media (max-width: 900px) {
@@ -235,7 +235,7 @@ As you can see in the CSS snapshot above, 4 parameters were used to make changes
 With using CSS grid it changes the amount of columns as to what will fit on the screen making it so I do not need to modify it using a media query.
 
 Also in the CSS snapshot above there is a snippet which states:
-```
+```CSS
     .feedbackLbl {
         display: none !important;
     }
@@ -353,14 +353,19 @@ I have already lightly gone into the accessibility of my page in a earlier part 
 This is to mostly highlight the accessibility testing that took place to ensure that any user could access and enjoy this website. The results of the lighthouse testing came back quite positive without changes being required for it to meet an acceptable score. I have attached screenshots below.
 
 Light-mode Index:
+
 ![Light-mode Index report](/assets/images/lighthouse%20images/lightMode_Menu_Lighthouse.png)
 >Now with the score on this page I was confused how exactly the scores managed to differ between quiz and index when dark-modes' didn't. After review I noticed that the lower accessibility score is erroneous for the index. It reports that the issue comes from the text for any (on the difficulty radio) by default being light blue this is changed when the page loads into light-mode mode to avoid such issues. It appears that lighthouse is unable to notice this as at first load. It is light blue (not that any users would be able to tell due to how quickly it changes)
 
+<br>
 Light-mode Quiz:
-![Light-mode Quiz report](/assets/images/lighthouse%20images/lightMode_Quiz_Lighthouse.png)
-Dark-mode Index (Dark-mode quiz had the exact same score so no screenshot provided):
-![Dark-mode Index & quiz report](/assets/images/lighthouse%20images/darkMode_Menu_Lighthouse.png)
 
+![Light-mode Quiz report](/assets/images/lighthouse%20images/lightMode_Quiz_Lighthouse.png)
+<br>
+Dark-mode Index (Dark-mode quiz had the exact same score so no screenshot provided):
+
+![Dark-mode Index & quiz report](/assets/images/lighthouse%20images/darkMode_Menu_Lighthouse.png)
+<br>
 >These are copies of the PDF reports from the lighthouse testing for both pages:
 - [Light-mode Index Report](/assets/docs/lightMode_Index_Lighthouse.pdf)
 - [Light-mode Quiz Report](/assets/docs/lightMode_Quiz_Lighthouse.pdf)
